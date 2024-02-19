@@ -64,3 +64,5 @@ spec:
   to:
     kind: Service
     name: kafka-ui-service
+  tls:
+    termination: edge    

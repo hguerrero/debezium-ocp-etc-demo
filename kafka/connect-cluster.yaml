@@ -8,11 +8,7 @@ metadata:
 spec:
   version: 3.5.1
   replicas: 1
-  bootstrapServers: kafka-cluster-kafka-bootstrap:9093
-  tls:
-    trustedCertificates:
-      - secretName: kafka-cluster-cluster-ca-cert
-        certificate: ca.crt
+  bootstrapServers: kafka-cluster-kafka-bootstrap:9092
   config:
     group.id: connect-cluster
     offset.storage.topic: connect-cluster-offsets
@@ -25,7 +21,7 @@ spec:
   build:
     output:
       type: docker
-      image: image-registry.openshift-image-registry.svc:5000/connect-cluster-namespace/debezium-connect:latest
+      image: image-registry.openshift-image-registry.svc:5000/nejug2024/debezium-connect:latest
     plugins:
       - name: debezium-connector-postgres
         artifacts:

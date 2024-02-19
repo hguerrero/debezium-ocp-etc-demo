@@ -2,3 +2,8 @@
 .idea
 *.iml
 DEMO_NOTES.md
+
+.quarkus
+**/.camel-jbang
+
+**/target

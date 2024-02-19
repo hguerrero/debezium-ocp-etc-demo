@@ -1,0 +1,20 @@
+- route:
+    nodePrefixId: route-14b
+    id: route-2f1f
+    from:
+      uri: kafka
+      id: from-c052
+      parameters:
+        brokers: kafka-cluster-kafka-bootstrap:9092
+        topic: server1.inventory.customers
+        autoOffsetReset: earliest
+        valueDeserializer: "io.apicurio.registry.serde.avro.AvroKafkaDeserializer"
+        additionalProperties.apicurio.registry.url: http://apicurioregistry-kafkasql-service:8080
+        additionalProperties.apicurio.registry.avroDatumProvider: io.apicurio.registry.serde.avro.ReflectAvroDatumProvider
+        additionalProperties.apicurio.registry.asConfluent: 'true'
+        additionalProperties.apicurio.registry.useId: contentId
+        additionalProperties.apicurio.registry.findLatest: 'true'
+      steps:
+        - log:
+            message: ${body}
+            id: log-0061

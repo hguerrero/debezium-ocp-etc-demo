@@ -1,0 +1,15 @@
+- route:
+    nodePrefixId: route-1ff
+    id: route-b782
+    from:
+      uri: kamelet:kafka-apicurio-registry-not-secured-source
+      id: from-e955
+      parameters:
+        topic: server1.inventory.customers
+        bootstrapServers: kafka-cluster-kafka-bootstrap:9092
+        apicurioRegistryUrl: http://apicurioregistry-kafkasql-service:8080
+        autoOffsetReset: earliest
+      steps:
+        - log:
+            message: ${body}
+            id: log-6d6c

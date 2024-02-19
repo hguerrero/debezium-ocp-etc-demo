@@ -19,3 +19,20 @@ spec:
   replicas: 3
   config:
     cleanup.policy: compact
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: apicurioregistry
+spec:
+  subdomain: apicurioregistry-kafkasql
+  to:
+    kind: Service
+    name: apicurioregistry-kafkasql-service
+    weight: 100
+  port:
+    targetPort: 8080    
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None    
